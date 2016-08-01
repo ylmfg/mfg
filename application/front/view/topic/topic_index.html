@@ -1,0 +1,140 @@
+
+{extends file="layout/layout.html"}
+{block name="content"}
+<div class="aw-container-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="aw-content-wrap clearfix">
+                <div class="col-sm-12 col-md-9 aw-main-content">
+                    <!-- tab切换 -->
+                    <ul class="nav nav-tabs aw-nav-tabs active hidden-xs">
+                        <li>
+                            <a href="topic_index.html">30 天</a>
+                        </li>
+                        <li>
+                            <a href="topic_index.html">7 天</a>
+                        </li>
+                        <li class="active">
+                            <a href="topic_index.html">全部</a>
+                        </li>
+                    </ul>
+                    <!-- end tab切换 -->
+                    <div class="aw-mod aw-topic-list">
+                        <div class="mod-body clearfix">
+                            <div class="aw-item">
+                                <!-- 话题图片 -->
+                                <a data-id="2" href="topic.html" class="img aw-border-radius-5">
+                                    <img alt="" src="{$smarty.const.ROOT}web/common/topic-mid-img.png"></a>
+                                <!-- end 话题图片 -->
+                                <p class="clearfix">
+                                    <!-- 话题内容 -->
+									<span class="topic-tag">
+										<a data-id="2" href="topic.html" class="text">php</a>
+									</span>
+                                    <!-- end 话题内容 -->
+                                </p>
+                                <p class="text-color-999">
+                                    <span>3 个讨论</span>
+                                </p>
+                                <p class="text-color-999">7 天新增 3 个讨论, 30 天新增 3 个讨论</p>
+                            </div>
+                            <div class="aw-item">
+                                <!-- 话题图片 -->
+                                <a data-id="3" href="topic.html" class="img aw-border-radius-5">
+                                    <img alt="" src="{$smarty.const.ROOT}web/common/topic-mid-img.png"></a>
+                                <!-- end 话题图片 -->
+                                <p class="clearfix">
+                                    <!-- 话题内容 -->
+									<span class="topic-tag">
+										<a data-id="3" href="topic.html" class="text">引力波</a>
+									</span>
+                                    <!-- end 话题内容 -->
+                                </p>
+                                <p class="text-color-999">
+                                    <span>1 个讨论</span>
+                                </p>
+                                <p class="text-color-999">7 天新增 1 个讨论, 30 天新增 1 个讨论</p>
+                            </div>
+                            <div class="aw-item">
+                                <!-- 话题图片 -->
+                                <a data-id="4" href="topic.html" class="img aw-border-radius-5">
+                                    <img alt="图片" src="{$smarty.const.ROOT}web/common/topic-mid-img.png"></a>
+                                <!-- end 话题图片 -->
+                                <p class="clearfix">
+                                    <!-- 话题内容 -->
+									<span class="topic-tag">
+										<a data-id="4" href="topic.html" class="text">引力</a>
+									</span>
+                                    <!-- end 话题内容 -->
+                                </p>
+                                <p class="text-color-999">
+                                    <span>1 个讨论</span>
+                                </p>
+                                <p class="text-color-999">7 天新增 1 个讨论, 30 天新增 1 个讨论</p>
+                            </div>
+                        </div>
+                        <div class="mod-footer clearfix"></div>
+                    </div>
+                    <!-- end 我关注的话题 -->
+                </div>
+
+                <!-- 侧边栏 -->
+                <div class="col-sm-3 col-md-3 aw-side-bar hidden-sm hidden-xs">
+                    <!-- 今日话题 -->
+                    <div class="aw-mod topic-daily hidden-xs">
+                        <div class="mod-head">
+                            <h3>今日话题</h3>
+                        </div>
+                        <div class="mod-body">
+                            <dl>
+                                <dt class="pull-left">
+                                    <!-- 话题图片 -->
+                                    <a href="topic.html" class="img aw-border-radius-5" data-id="">
+                                        <img alt="" src="{$smarty.const.ROOT}web/common/topic-mid-img.png"></a>
+                                    <!-- end 话题图片 -->
+                                </dt>
+                                <dd class="pull-left">PHP</dd>
+                            </dl>
+                            <!-- 话题描述 -->
+                            <p>
+                                <span></span>
+                                ...<a href="topic.html">进入话题 »</a>
+                            </p>
+                            <!-- end 话题描述 -->
+                        </div>
+                    </div>
+                    <!-- end 今日话题 -->
+                    <!-- 新增话题 -->
+                    <div class="aw-mod new-topic">
+                        <div class="mod-head">
+                            <h3>新增话题</h3>
+                        </div>
+                        <div class="mod-body clearfix">
+                            <div class="aw-topic-bar">
+                                <div class="topic-bar clearfix">
+									<span class="topic-tag">
+										<a data-id="4" href="topic.html" class="text">引力</a>
+									</span>
+									<span class="topic-tag">
+										<a data-id="3" href="topic.html" class="text">引力波</a>
+									</span>
+									<span class="topic-tag">
+										<a data-id="2" href="topic.html" class="text">php</a>
+									</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end 新增话题 -->
+                    <div class="aw-mod">
+                        <div class="mod-body">
+                            <a href="?/home/#focus_topic__focus">我关注的话题</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end 侧边栏 -->
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

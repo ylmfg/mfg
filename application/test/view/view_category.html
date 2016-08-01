@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>new file</title>
+</head>
+<body>
+<h1>分类列表</h1>
+<table>
+{foreach $category_list as $category}
+<tr>
+<td>{$category['id']}</td>
+<td>{$category['title']}</td>
+</tr>
+{/foreach}
+</table>
+</body>
+</html>

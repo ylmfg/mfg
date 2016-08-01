@@ -1,0 +1,150 @@
+{extends file="layout/layout.html"}
+{block name="content"}
+
+<div class="aw-container-wrap">
+	<div class="container category">
+		<div class="row">
+			<div class="col-sm-12">
+                {foreach $category_list as $category}
+				<dl>
+					<dt>
+						<img alt="默认分类" src="{$smarty.const.ROOT}web/front/css/default/img/default_class_imgs.png"></dt>
+					<dd>
+						<p class="title">
+							<a href="category.html">{$category['cate_title']}</a>
+						</p>
+						<span>默认分类描述</span>
+					</dd>
+				</dl>
+                {/foreach}
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="aw-content-wrap clearfix">
+				<div class="col-sm-12 col-md-9 aw-main-content">
+					<!-- end 新消息通知 -->
+					<!-- tab切换 -->
+					<ul class="nav nav-tabs aw-nav-tabs active hidden-xs">
+						<li>
+							<a href="">等待回复</a>
+						</li>
+						<li>
+							<a id="sort_control_hot" href="">热门</a>
+						</li>
+						<li>
+							<a href="">推荐</a>
+						</li>
+						<li class="active">
+							<a href="">最新</a>
+						</li>
+
+						<h2 class="hidden-xs">
+							<i class="icon icon-list"></i>
+							发现
+						</h2>
+					</ul>
+					<!-- end tab切换 -->
+
+					<div class="aw-mod aw-explore-list">
+						<div class="mod-body">
+							<div class="aw-common-list">
+
+                                {foreach $question_list as $question}
+								<div data-topic-id="2," class="aw-item active">
+									<a rel="nofollow" href="people.html" data-id="1" class="aw-user-name hidden-xs">
+										<img alt="" src="{$smarty.const.ROOT}web/common/avatar-max-img.png"></a>
+									<div class="aw-question-content">
+										<h4>
+											<a href="{$question['static_url']}">{$question['question_content']}</a>
+										</h4>
+										<a class="pull-right text-color-999" href="{$question['static_url']}">回复</a>
+
+										<p>
+											<a href="category.html" class="aw-question-tags">{$question['cate_title']}</a>
+											•
+											<a class="aw-user-name" href="people.html">{$question['user_name']}</a>
+											<span class="text-color-999">发起了问题 • 1 人关注 • 0 个回复 • 1 次浏览 • 3 天前</span>
+											<span class="text-color-999 related-topic hide">• 来自相关话题</span>
+										</p>
+
+									</div>
+								</div>
+								{/foreach}
+							</div>
+						</div>
+						<div class="mod-footer">
+							<div class="page-control">
+								{$pageResult}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 侧边栏 -->
+				<div class="col-sm-12 col-md-3 aw-side-bar hidden-xs hidden-sm">
+					<div class="aw-mod aw-text-align-justify">
+						<div class="mod-head">
+							<a class="pull-right" href="topic_index.html">更多 &gt;</a>
+							<h3>热门话题</h3>
+						</div>
+						<div class="mod-body">
+                            {foreach $topic_question_list as $topic_question}
+							<dl>
+								<dt class="pull-left aw-border-radius-5">
+									<a href="topic.html">
+										<img src="{$smarty.const.ROOT}web/common/topic-mid-img.png" alt=""></a>
+								</dt>
+								<dd class="pull-left">
+									<p class="clearfix">
+										<span class="topic-tag">
+											<a data-id="2" class="text" href="{framewrok\core\Factory::U('front/Topic/topicIndex')}">
+                                                {$topic_question['topic_title']}
+                                            </a>
+										</span>
+									</p>
+									<p> <b>{$topic_question['question_num']}</b>
+										个问题, <b>1</b>
+										人关注
+									</p>
+								</dd>
+							</dl>
+						    {/foreach}
+						</div>
+					</div>
+					<div class="aw-mod aw-text-align-justify">
+						<div class="mod-head">
+							<a class="pull-right" href="?/people/">更多 &gt;</a>
+							<h3>热门用户</h3>
+						</div>
+						<div class="mod-body">
+                           {foreach $info_list as $info}
+							<dl>
+								<dt class="pull-left aw-border-radius-5">
+									<a href="people.html">
+										<img src="{$smarty.const.ROOT}web/common/avatar-mid-img.png" alt=""></a>
+								</dt>
+								<dd class="pull-left">
+									<a class="aw-user-name" data-id="2" href="people.html">{$info['username']}</a>
+									<p class="signature"></p>
+									<p>
+										<b>{$info['q_num']}</b>
+										个问题,
+										<b>0</b>
+										次赞同
+									</p>
+								</dd>
+							</dl>
+                            {/foreach}
+						</div>
+					</div>
+				</div>
+				<!-- end 侧边栏 -->
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+

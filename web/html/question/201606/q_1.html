@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html class="">
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+	<meta name="renderer" content="webkit">
+	<title>发现 - 有问必答</title>
+	<meta name="keywords" content="有问必答,知识社区,社交社区,问答社区">
+	<meta name="description" content="有问必答 社交化知识社区">
+	<base href="">
+	<!--[if IE]>
+</base>
+<![endif]-->
+<link href="/ylmf/web/front/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+<link rel="stylesheet" type="text/css" href="/ylmf/web/front/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/ylmf/web/front/css/icon.css">
+
+<link href="/ylmf/web/front/css/default/common.css" rel="stylesheet" type="text/css">
+<link href="/ylmf/web/front/css/default/link.css" rel="stylesheet" type="text/css">
+<script src="/ylmf/web/front/js/jquery.2.js" type="text/javascript"></script>
+<script type="text/javascript" src="/ylmf/web/front/js/compatibility.js"></script>
+<!--[if lte IE 8]>
+<script type="text/javascript" src="/ylmf/web/front/js/respond.js"></script>
+<![endif]-->
+<style type="text/css">
+.fancybox-margin {
+	margin-right:17px;
+}
+</style>
+
+<style type="text/css">.fancybox-margin{margin-right:17px;}</style>
+
+</head>
+
+<body>
+
+<div class="aw-top-menu-wrap">
+	<div class="container">
+		<!-- logo -->
+		<div class="aw-logo hidden-xs">
+			<a href=""></a>
+		</div>
+		<!-- end logo -->
+		<!-- 搜索框 -->
+		<div class="aw-search-box  hidden-xs hidden-sm">
+			<form class="navbar-search" action="?/search/" id="global_search_form" method="post">
+				<input type="text" class="form-control search-query" placeholder="搜索问题、话题或人" autocomplete="off" name="q" id="aw-search-query">
+				<span title="搜索" id="global_search_btns" onclick="$('#global_search_form').submit();"> <i class="icon icon-search"></i>
+				</span>
+				<div class="aw-dropdown">
+					<div class="mod-body">
+						<p class="title">输入关键字进行搜索</p>
+						<ul class="aw-dropdown-list hide"></ul>
+						<p class="search">
+							<span>搜索:</span>
+							<a onclick="$('#global_search_form').submit();"></a>
+						</p>
+					</div>
+					<div class="mod-footer">
+						<a href="publish.html" onclick="" class="pull-right btn btn-mini btn-success publish">发起问题</a>
+					</div>
+				</div>
+			</form>
+		</div>
+		<!-- end 搜索框 -->
+		<!-- 导航 -->
+		<div class="aw-top-nav navbar">
+			<div class="navbar-header">
+				<button class="navbar-toggle pull-left">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="index.html" class="active"> <i class="icon icon-list"></i>
+							发现
+						</a>
+					</li>
+					<li>
+						<a href="topic_index.html">
+							<i class="icon icon-topic"></i>
+							话题
+						</a>
+					</li>
+					<li>
+						<a style="font-weight:bold;">· · ·</a>
+						<div class="dropdown-list pull-right">
+							<ul id="extensions-nav-list"></ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<!-- end 导航 -->
+		<!-- 未登录展示 -->
+        		<!-- 登陆成功展示用户栏 -->
+		<div class="aw-user-nav">
+			<!-- 登陆&注册栏 -->
+			<a href="?/people/kang" class="aw-user-nav-dropdown">
+				<img alt="kang" src="/ylmf/web/front/img/avatar-mid-img.png"></a>
+			<div class="aw-dropdown dropdown-list pull-right">
+				<ul class="aw-dropdown-list">
+					<li class="hidden-xs">
+						<a href="user_set.html">
+							<i class="icon icon-setting"></i>
+							设置
+						</a>
+					</li>
+					<li class="hidden-xs">
+						<a href="admin/login.html">
+							<i class="icon icon-job"></i>
+							管理
+						</a>
+					</li>
+					<li>
+						<a href="/ylmf/index.php/front/User/loginOut.html">
+							<i class="icon icon-logout"></i>
+							退出
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!-- end 登陆&注册栏 -->
+		</div>
+        		<!-- end 用户栏 -->
+		<!-- 发起 -->
+		<div class="aw-publish-btn">
+
+			<a id="header_publish" class="btn-primary" href="?/publish/" onclick="">
+				<i class="icon icon-ask"></i>
+				发起
+			</a>
+			<div class="dropdown-list pull-right">
+				<ul>
+					<li>
+						<a href="/ylmf/index.php/front/Content/publish.html" onclick="">问题</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- end 发起 -->
+	</div>
+</div>
+
+
+<div class="aw-container-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="aw-content-wrap clearfix">
+                <div class="col-sm-12 col-md-9 aw-main-content">
+                    <!-- 话题推荐bar -->
+                    <!-- 话题推荐bar -->
+                    <!-- 话题bar -->
+                    <div class="aw-mod aw-topic-bar" id="question_topic_editor" data-type="question" data-id="12">
+                        <div class="tag-bar clearfix">
+							<span class="topic-tag" data-id="2">
+								<a href="topic.html" class="text">php</a>
+							</span>
+
+                        </div>
+                    </div>
+                    <!-- end 话题bar -->
+                    <div class="aw-mod aw-question-detail aw-item">
+                        <div class="mod-head">
+                            <h1>乐山</h1>
+
+                        </div>
+                        <div class="mod-body">
+                            <div class="content markitup-box"></div>
+                        </div>
+                        <div class="mod-footer">
+                            <div class="meta">
+                                <span class="text-color-999">2016-06-08 22:32:21</span>
+
+                                <!-- <a class="text-color-999" href="publish.html">
+                                    <i class="icon icon-edit"></i>
+                                    编辑
+                                </a>
+ -->
+                                <div class="pull-right more-operate">
+                                    <a class="text-color-999 dropdown-toggle" data-toggle="dropdown">
+                                        <i class="icon icon-share"></i>
+                                        分享
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="aw-mod aw-question-comment">
+                        <div class="mod-head">
+                            <ul class="nav nav-tabs aw-nav-tabs active">
+                                <li>
+                                    <a href="question.html">
+                                        时间
+                                        <i class="icon icon-up"></i>
+                                    </a>
+                                </li>
+
+                                <h2 class="hidden-xs">2 个回复</h2>
+                            </ul>
+                        </div>
+                        <div class="mod-body aw-feed-list">
+                            <div class="aw-item" uninterested_count="0" force_fold="0" id="answer_list_2">
+                                <div class="mod-head">
+                                    <a class="anchor" name="answer_2"></a>
+                                    <!-- 用户头像 -->
+                                    <a class="aw-user-img aw-border-radius-5" href="people.html" data-id="3">
+                                        <img src="/ylmf/web/common/avatar-mid-img.png" alt="图片"></a>
+                                    <!-- end 用户头像 -->
+                                    <div class="title">
+                                        <p>
+                                            <a class="aw-user-name" href="people.html" data-id="3">han</a>
+                                            -
+                                            <span class="text-color-999">一句话介绍</span>
+                                        </p>
+                                        <p class="text-color-999 aw-agree-by hide">赞同来自:</p>
+                                    </div>
+                                </div>
+                                <div class="mod-body clearfix">
+                                    <!-- 评论内容 -->
+                                    <div class="markitup-box">这个问题基本上很难</div>
+
+                                    <!-- end 评论内容 -->
+                                </div>
+                                <div class="mod-footer">
+                                    <!-- 社交操作 -->
+                                    <div class="meta clearfix">
+                                        <span class="text-color-999 pull-right">9 分钟前</span>
+                                        <!-- 投票栏 -->
+										<span class="operate">
+											<a class="agree  " onclick="AWS.User.agree_vote(this, 'kang', 2);">
+                                                <i data-placement="right" title="" data-toggle="tooltip" class="icon icon-agree" data-original-title="赞同回复"></i> <b class="count">0</b>
+                                            </a>
+											<a class="disagree " onclick="AWS.User.disagree_vote(this, 'kang', 2)">
+                                                <i data-placement="right" title="" data-toggle="tooltip" class="icon icon-disagree" data-original-title="对回复持反对意见"></i>
+                                            </a>
+										</span>
+                                        <!-- end 投票栏 -->
+										<span class="operate">
+											<a class="aw-add-comment" data-id="2" data-type="answer" data-comment-count="0" data-first-click="hide" href="javascript:;">
+                                                <i class="icon icon-comment"></i>
+                                                0
+                                            </a>
+										</span>
+                                        <!-- 可显示/隐藏的操作box -->
+                                        <div class="more-operate">
+                                            <a class="text-color-999" href="javascript:;" onclick="">
+                                                <i class="icon icon-edit"></i>
+                                                编辑
+                                            </a>
+                                            <a href="javascript:;" onclick="AWS.User.answer_force_fold($(this), 2);" class="text-color-999">
+                                                <i class="icon icon-fold"></i>
+                                                折叠
+                                            </a>
+
+                                            <a href="javascript:;" onclick="" class="text-color-999">
+                                                <i class="icon icon-favor"></i>
+                                                收藏
+                                            </a>
+
+                                            <a href="javascript:;" onclick="AWS.User.answer_user_rate($(this), 'thanks', 2);" class="aw-icon-thank-tips text-color-999" data-original-title="感谢热心的回复者" data-toggle="tooltip" title="" data-placement="bottom">
+                                                <i class="icon icon-thank"></i>
+                                                感谢
+                                            </a>
+                                            <div class="btn-group pull-left">
+                                                <a class="text-color-999 dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="icon icon-share"></i>
+                                                    分享
+                                                </a>
+                                                <div aria-labelledby="dropdownMenu" role="menu" class="aw-dropdown shareout pull-right">
+                                                    <ul class="aw-dropdown-list">
+                                                        <li>
+                                                            <a onclick="">
+                                                                <i class="icon icon-weibo"></i>
+                                                                微博
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a onclick="">
+                                                                <i class="icon icon-qzone"></i>
+                                                                QZONE
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a onclick="">
+                                                                <i class="icon icon-wechat"></i>
+                                                                微信
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <a href="javascript:;" onclick="AWS.ajax_request(G_BASE_URL + '/question/ajax/set_best_answer/', 'answer_id=2');" class="text-color-999">
+                                                <i class="icon icon-best"></i>
+                                                最佳回复
+                                            </a>
+                                        </div>
+                                        <!-- end 可显示/隐藏的操作box -->
+
+                                    </div>
+                                    <!-- end 社交操作 -->
+                                </div>
+                            </div>
+                            <div class="aw-item" uninterested_count="0" force_fold="0" id="answer_list_3">
+                                <div class="mod-head">
+                                    <a class="anchor" name="answer_3"></a>
+                                    <!-- 用户头像 -->
+                                    <a class="aw-user-img aw-border-radius-5" href="people.html" data-id="3">
+                                        <img src="/ylmf/web/common/avatar-mid-img.png" alt=""></a>
+                                    <!-- end 用户头像 -->
+                                    <div class="title">
+                                        <p>
+                                            <a class="aw-user-name" href="people.html" data-id="3">han</a>
+                                            -
+                                            <span class="text-color-999">一句话介绍</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="mod-body clearfix">
+                                    <!-- 评论内容 -->
+                                    <div class="markitup-box">代码很重要，程序员也很重要</div>
+
+                                    <!-- end 评论内容 -->
+                                </div>
+                                <div class="mod-footer">
+                                    <!-- 社交操作 -->
+                                    <div class="meta clearfix">
+                                        <span class="text-color-999 pull-right">9 分钟前</span>
+                                        <!-- 投票栏 -->
+										<span class="operate">
+											<a class="agree  " onclick="AWS.User.agree_vote(this, 'kang', 3);">
+                                                <i data-placement="right" title="" data-toggle="tooltip" class="icon icon-agree" data-original-title="赞同回复"></i> <b class="count">0</b>
+                                            </a>
+											<a class="disagree " onclick="AWS.User.disagree_vote(this, 'kang', 3)">
+                                                <i data-placement="right" title="" data-toggle="tooltip" class="icon icon-disagree" data-original-title="对回复持反对意见"></i>
+                                            </a>
+										</span>
+                                        <!-- end 投票栏 -->
+
+                                    </div>
+                                    <!-- end 社交操作 -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mod-footer">
+                            <div class="aw-load-more-content hide" id="load_uninterested_answers">
+                                <span class="text-color-999 aw-alert-box text-color-999" href="javascript:;" tabindex="-1" onclick="AWS.alert('被折叠的回复是被你或者被大多数用户认为没有帮助的回复');">为什么被折叠?</span>
+                                <a href="javascript:;" class="aw-load-more-content">
+                                    <span class="hide_answers_count">0</span>
+                                    个回复被折叠
+                                </a>
+                            </div>
+
+                            <div class="hide aw-feed-list" id="uninterested_answers_list"></div>
+                        </div>
+
+                    </div>
+                    <!-- end 问题详细模块 -->
+
+                    <div class="aw-mod aw-replay-box question">
+                        <a name="answer_form"></a>
+                        <form action="/ylmf/index.php/front/Anwser/anwserMessage.html" onsubmit="" method="post" id="answer_form" class="question_answer_form">
+                            <input type="hidden" value="1" id="" name="question">
+                            <div class="mod-head">
+                                <a href="?/people/" class="aw-user-name">
+                                    <img alt="kang" src="/ylmf/web/common/avatar-mid-img.png"></a>
+                                <p>
+                                    <label class="pull-right">
+                                        <input type="checkbox" value="1" name="anonymous">回复</label>
+                                    <label class="pull-right"></label>
+                                    kang
+                                </p>
+                            </div>
+                            <div class="mod-body">
+                                <div class="aw-mod aw-editor-box">
+                                    <div class="mod-head">
+                                        <textarea name="anwser" style="width:100%"></textarea>
+                                    </div>
+                                    <div class="mod-body clearf">
+                                        <input type="submit" value="回复">
+                                        <span class="pull-right text-color-999" id="answer_content_message">&nbsp;</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- 回复编辑器 -->
+                    <div class="aw-mod aw-replay-box question">
+                        <a name="anwser_form"></a>
+                        <p align="center">
+                            要回复问题请先
+                            <a href="?/account/login/">登录</a>
+                            或
+                            <a href="?/account/register/">注册</a>
+                        </p>
+                    </div>
+                    <!-- end 回复编辑器 -->
+                </div>
+                <!-- 侧边栏 -->
+                <div class="col-md-3 aw-side-bar hidden-xs hidden-sm">
+                    <!-- 发起人 -->
+                    <div class="aw-mod">
+                        <div class="mod-head">
+                            <h3>发起人</h3>
+                        </div>
+                        <div class="mod-body">
+                            <dl>
+                                <dt class="pull-left aw-border-radius-5">
+                                    <a href="?/people/kang">
+                                        <img alt="kang" src="/ylmf/web/common/avatar-mid-img.png"></a>
+                                </dt>
+                                <dd class="pull-left">
+                                    <a class="aw-user-name" href="?/people/kang" data-id="1">kang</a>
+                                    <p></p>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <!-- end 发起人 -->
+
+                    <!-- 问题状态 -->
+                    <div class="aw-mod question-status">
+                        <div class="mod-head">
+                            <h3>问题状态</h3>
+                        </div>
+                        <div class="mod-body">
+                            <ul>
+                                <li>
+                                    最新活动:
+                                    <span class="aw-text-color-blue">4 天前</span>
+                                </li>
+                                <li>
+                                    浏览:
+                                    <span class="aw-text-color-blue">1</span>
+                                </li>
+                                <li>
+                                    关注:
+                                    <span class="aw-text-color-blue">1</span>
+                                    人
+                                </li>
+
+                                <li class="aw-border-radius-5" id="focus_users">
+                                    <a href="?/people/kang">
+                                        <img src="/ylmf/web/common/avatar-mid-img.png" class="aw-user-name" data-id="1" alt="kang"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end 问题状态 -->
+                </div>
+                <!-- end 侧边栏 -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="aw-footer-wrap">
+	<div class="aw-footer">
+		Copyright &copy; 2016-2099, All Rights Reserved
+		<span class="hidden-xs">
+			Powered By
+			<a href="http://hellokang.net/" target="blank">有问必答 1.0</a>
+		</span>
+
+	</div>
+</div>
+
+</body>
+</html>

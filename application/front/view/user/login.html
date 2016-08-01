@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="IE=edge,Chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="webkit" name="renderer">
+    <title>登录 - 有问必答</title>
+    <meta content="有问必答,知识社区,社交社区,问答社区" name="keywords">
+    <meta content="有问必答 社交化知识社区" name="description">
+    <link type="image/x-icon" rel="shortcut icon" href="{$smarty.const.ROOT}web/front/img/favicon.ico">
+
+    <link href="{$smarty.const.ROOT}web/front/css/bootstrap.css" type="text/css" rel="stylesheet">
+    <link href="{$smarty.const.ROOT}web/front/css/icon.css" type="text/css" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="{$smarty.const.ROOT}web/front/css/default/common.css">
+    <link type="text/css" rel="stylesheet" href="{$smarty.const.ROOT}web/front/css/default/link.css">
+    <link type="text/css" rel="stylesheet" href="{$smarty.const.ROOT}web/front/js/plug_module/style.css">
+    <link type="text/css" rel="stylesheet" href="{$smarty.const.ROOT}web/front/css/default/login.css">
+
+    <script type="text/javascript" src="{$smarty.const.ROOT}web/front/js/jquery.2.js"></script>
+    <script src="{$smarty.const.ROOT}web/front/js/compatibility.js" type="text/javascript"></script>
+    <!--[if lte IE 8]>
+    <script type="text/javascript" src="{$smarty.const.ROOT}web/front/js/respond.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        .fancybox-margin {
+            margin-right:17px;
+        }
+    </style>
+
+</head>
+
+<body>
+<noscript id="noscript" unselectable="on">
+    <div class="aw-404 aw-404-wrap container">
+        <img src="{$smarty.const.ROOT}web/common/no-js.jpg">
+        <p>你的浏览器禁用了JavaScript, 请开启后刷新浏览器获得更好的体验!</p>
+    </div>
+</noscript>
+<div id="wrapper">
+    <div class="aw-login-box">
+        <div class="mod-body clearfix">
+            <div class="content pull-left">
+                <h1 class="logo">
+                    <a href=""></a>
+                </h1>
+                <h2>有问必答</h2>
+                <form action="{framewrok\core\Factory::U('front/User/loginProcess')}" onsubmit="" method="post" id="login_form">
+                    <input type="hidden" value="" name="return_url">
+                    <ul>
+                        <li>
+                            <input type="text" name="user_name" placeholder="邮箱 / 用户名" class="form-control" id="aw-login-user-name"></li>
+                        <li>
+                            <input type="password" name="user_password" placeholder="密码" class="form-control" id="aw-login-user-password"></li>
+                        <li class="aw-register-verify">
+                            <input type="text" placeholder="验证码" name="captcha" class="form-control" size="5">
+                            <img src="{framewrok\core\Factory::U('front/User/Captcha')}" onclick="changeCaptcha()" id="captcha" class="pull-right">
+                        </li><br><br>
+                        <li class="alert alert-danger hide error_message"> <i class="icon icon-delete"></i> <em></em>
+                        </li>
+                        <li class="last">
+                            <input type="submit" class="pull-right btn btn-large btn-primary" id="login_submit" onclick="" value="登录" >
+                            <label>
+                                <input type="checkbox" name="net_auto_login" value="1">记住我</label>
+                            <a href="forget_password.html">&nbsp;&nbsp;忘记密码</a>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class="side-bar pull-left"></div>
+        </div>
+        <div class="mod-footer">
+            <span>还没有账号?</span>
+            &nbsp;&nbsp;
+            <a href="register.html">立即注册</a>
+            &nbsp;&nbsp;•&nbsp;&nbsp;
+            <a href="">游客访问</a>
+        </div>
+    </div>
+</div>
+
+<div class="aw-footer-wrap">
+    <div class="aw-footer">
+        Copyright &copy; 2016-2099, All Rights Reserved
+		<span class="hidden-xs">
+			Powered By
+			<a target="blank" href="http://hellokang.net/">有问必答 1.0</a>
+		</span>
+
+    </div>
+</div>
+<script type="text/javascript">
+    function changeCaptcha(){
+        var oImag=document.getElementById('captcha');
+        //window.alert(oImag);
+        oImag.src = 'Captcha/'+Math.random();
+        //window.alert(oImag.src);
+
+    }
+
+</script>
+</body>
+</html>

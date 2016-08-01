@@ -1,0 +1,13 @@
+#分布式配置文件
+
+
+RewriteEngine On
+#所请求的文件不存在
+RewriteCond %{REQUEST_FILENAME} !-f
+#所请求的目录不存在
+RewriteCond %{REQUEST_FILENAME} !-d
+#定义重写规则
+RewriteRule (.*) index.php/$1
+
+
+

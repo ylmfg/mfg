@@ -1,0 +1,96 @@
+{extends file="layout/layout.html"}
+{block name="content"}
+        <div style="width: 235px; display: none; left: 0px; bottom: 3px;" class="ps-scrollbar-x-rail">
+            <div style="left: 0px; width: 0px;" class="ps-scrollbar-x"></div>
+        </div>
+        <div style="top: 0px; height: 607px; display: inherit; right: 0px;" class="ps-scrollbar-y-rail">
+            <div style="top: 0px; height: 560px;" class="ps-scrollbar-y"></div>
+        </div>
+    <div class="ps-scrollbar-x-rail" style="width: 235px; display: none; left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 585px; display: inherit; right: 0px;"><div class="ps-scrollbar-y" style="top: 0px; height: 520px;"></div></div></div>
+<div class="aw-content-wrap">
+    <div class="mod">
+        <div class="mod-head">
+            <h3>
+                <span class="pull-left">分类管理</span>
+            </h3>
+        </div>
+
+        <div class="tab-content mod-body">
+            <div class="alert alert-success hide error_message"></div>
+
+            <div class="table-responsive">
+                <form id="category_form" action="#" method="post" onsubmit="return false"></form>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="">分类标题</th>
+							<th>问题数量</th>
+                            <th>排序</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+					{foreach $category_list as $category}
+                        <tr>
+	<td style="text-align: left;" class="">
+		<a href="#">{$category['cate_title']|indent:$category['deep']:'--'}</a>
+	</td>
+	<td>{$category['question_count']}</td>
+                            <td>
+                                <div class="col-sm-6 clo-xs-12 col-lg-offset-3">
+								{$category['cate_sort']}
+								</div>
+                            </td>
+                            <td>
+<a data-original-title="编辑" href="{framewrok\core\Factory::U('back/Category/edit',['id'=>$category['cate_id']])}" data-toggle="tooltip" class="icon icon-edit md-tip" title=""></a>
+                                <a href="{framewrok\core\Factory::U('back/Category/delete',['id'=>$category['cate_id']])}" data-original-title="移除" data-toggle="tooltip" class="icon icon-trash md-tip" title="" onclick="return confirm('你真的要删除?')"></a>
+                            </td>
+                        </tr>
+                     {/foreach}
+                    </tbody>
+                    <tfoot class="mod-foot-center">
+                        <tr>
+                            <td colspan="3">
+                                <form id="add_category_form" action="{framewrok\core\Factory::U('back/Category/insert')}" method="post" onsubmit="">
+
+                                    <div class="form-group col-sm-4">
+                                        <span class="col-sm-3 col-xs-12 mod-category-foot">分类标题</span>
+                                        <div class="col-sm-9 col-xs-12">
+                                            <input type="text" class="form-control" name="category_title"></div>
+                                    </div>
+
+                                    <div class="form-group col-sm-4">
+                                        <span class="col-sm-3 col-xs-12 mod-category-foot">父级分类:</span>
+                                        <div class="col-sm-9 col-xs-12">
+<select name="parent_id" class="form-control">
+<option value=0>顶级分类</option>
+{foreach $category_list as $category}
+<option value="{$category['cate_id']}">{$category['cate_title']|indent:$category['deep']:"---"}</option>
+{/foreach}
+</select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-2">
+                                        <span class="col-sm-3 col-xs-12 mod-category-foot">排序</span>
+                                        <div class="col-sm-9 col-xs-12">
+                                            <input type="text" class="form-control" value="0" name="sort"></div>
+                                    </div>
+
+                                    <div class="form-group col-sm-2 col-xs-12">
+                                        <input type="submit" value="添加分类" class="form-control btn-primary btn">
+                                    </div>
+                                </form>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                
+            </div>
+        </div>
+    </div>
+    <div id="target-category" class="hide">
+        <option value="1">默认分类</option>
+    </div>
+</div>
+{/block}
